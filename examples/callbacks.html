@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script type="importmap">
+    {
+      "imports": {
+        "@hotwired/stimulus": "/node_modules/@hotwired/stimulus/dist/stimulus.js",
+        "@kanety/stimulus-nested-form": "/dist/index.module.js"
+      }
+    }
+  </script>
+  <script type="module">
+    import { Application, Controller } from '@hotwired/stimulus';
+    import NestedFormController from '@kanety/stimulus-nested-form';
+    const application = Application.start();
+    application.register('nested-form', NestedFormController);
+  </script>
+  <link rel="stylesheet" href="/dist/index.css"></link>
+</head>
+<body>
+  <h1>Callback</h1>
+  <form>
+    <div data-controller="nested-form">
+      <div data-nested-form-target="form">
+        <p>
+          <input type="text" name="assocs_attributes[0][text]" id="assocs_attributes_0_text">
+          <button type="button" data-action="nested-form#remove">Remove</button>
+        </p>
+      </div>
+      <button type="button" data-action="nested-form#add">Add</button>
+    </div>
+  </form>
+  <script>
+    let element = document.querySelector('[data-controller="nested-form"]');
+    element.addEventListener('nested-form:before-add', (e) => {
+      alert('before-add: ' + e.detail.form.querySelector('input').id);
+    });
+    element.addEventListener('nested-form:after-add', (e) => {
+      alert('after-add: ' + e.detail.form.querySelector('input').id);
+    });
+    element.addEventListener('nested-form:before-remove', (e) => {
+      alert('before-remove: ' + e.detail.form.querySelector('input').id);
+    });
+    element.addEventListener('nested-form:after-remove', (e) => {
+      alert('after-remove: ' + e.detail.form.querySelector('input').id);
+    });
+
+    function showID(e) {
+      document.querySelectorAll('input[type="text"], textarea').forEach(input => {
+        input.value = input.id;
+      });
+    }
+    showID();
+    document.querySelector('[data-controller="nested-form"]').addEventListener('nested-form:after-add', showID);
+  </script>
+</body>
+</html>

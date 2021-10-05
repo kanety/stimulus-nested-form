@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script type="importmap">
+    {
+      "imports": {
+        "@hotwired/stimulus": "/node_modules/@hotwired/stimulus/dist/stimulus.js",
+        "@kanety/stimulus-nested-form": "/dist/index.module.js"
+      }
+    }
+  </script>
+  <script type="module">
+    import { Application, Controller } from '@hotwired/stimulus';
+    import NestedFormController from '@kanety/stimulus-nested-form';
+    const application = Application.start();
+    application.register('nested-form', NestedFormController);
+  </script>
+  <link rel="stylesheet" href="/dist/index.css"></link>
+</head>
+<body>
+  <h1>Start index</h1>
+  <form>
+    <div data-controller="nested-form"
+         data-nested-form-start-value="10"
+         data-nested-form-increment-value="2"
+         data-nested-form-max-value="7">
+      <div data-nested-form-target="form">
+        <p>
+          <input type="text" name="assocs_attributes[10][text]" id="assocs_attributes_10_text">
+        </p>
+      </div>
+      <div data-nested-form-target="form">
+        <p>
+          <input type="text" name="assocs_attributes[11][text]" id="assocs_attributes_11_text">
+          <button type="button" data-action="nested-form#remove">Remove</button>
+        </p>
+      </div>
+      <button type="button" data-action="nested-form#add">Add</button>
+    </div>
+  </form>
+  <script>
+    function showID(e) {
+      document.querySelectorAll('input[type="text"], textarea').forEach(input => {
+        input.value = input.id;
+      });
+    }
+    showID();
+    document.querySelector('[data-controller="nested-form"]').addEventListener('nested-form:after-add', showID);
+  </script>
+</body>
+</html>
