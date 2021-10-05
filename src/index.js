@@ -100,9 +100,9 @@ export default class extends Controller {
 
   refresh() {
     if (this.hasMaxForms()) {
-      this.disableAdd();
+      this.disableAdder(true);
     } else {
-      this.enableAdd();
+      this.disableAdder(false);
     }
   }
 
@@ -111,11 +111,7 @@ export default class extends Controller {
            this.formTargets.filter(form => !form.matches('.st-nested-form--hidden')).length >= this.maxValue;
   }
 
-  enableAdd() {
-    this.adder.disabled = false;
-  }
-
-  disableAdd() {
-    this.adder.disabled = true;
+  disableAdder(disabled) {
+    if (this.adder) this.adder.disabled = disabled;
   }
 }
