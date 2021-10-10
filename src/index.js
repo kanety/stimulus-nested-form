@@ -17,7 +17,7 @@ export default class extends Controller {
   static attributes = ['id', 'name', 'for'];
 
   get adder() {
-    return this.element.querySelector(`[data-action="${this.identifier}#add"]`);
+    return this.scope.findElement(`[data-action="${this.identifier}#add"]`);
   }
 
   get assocs() {
@@ -99,9 +99,9 @@ export default class extends Controller {
 
   refresh() {
     if (this.hasMaxForms()) {
-      this.disableAdder(true);
+      this.toggleAdder(false);
     } else {
-      this.disableAdder(false);
+      this.toggleAdder(true);
     }
   }
 
@@ -110,7 +110,7 @@ export default class extends Controller {
            this.formTargets.filter(form => form.style.display != 'none').length >= this.maxValue;
   }
 
-  disableAdder(disabled) {
-    if (this.adder) this.adder.disabled = disabled;
+  toggleAdder(enabled) {
+    if (this.adder) this.adder.disabled = !enabled;
   }
 }

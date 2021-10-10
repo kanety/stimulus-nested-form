@@ -42,17 +42,17 @@ export default class FormBuilder {
   }
 
   clear(clone) {
-    clone.querySelectorAll('textarea, input[type="text"]').forEach(elem => elem.value = '');
-    clone.querySelectorAll('input[type="radio"], input[type="checkbox"]').forEach(elem => elem.checked = false);
+    clone.querySelectorAll('textarea, input[type=text]').forEach(elem => elem.value = '');
+    clone.querySelectorAll('input[type=radio], input[type=checkbox]').forEach(elem => elem.checked = false);
     clone.querySelectorAll('option').forEach(elem => elem.selected = false);
     clone.querySelectorAll('input[name$="[_destroy]"]').forEach(elem => elem.removeAttribute('value'));
   }
 
   setRadio(clone) {
-    let names = Array.from(clone.querySelectorAll('input[name][type="radio"]')).map(radio => radio.name);
+    let names = Array.from(clone.querySelectorAll('input[name][type=radio]')).map(radio => radio.name);
     let nameSet = new Set(names);
     nameSet.forEach(name => {
-      let radios = Array.from(clone.querySelectorAll(`input[type="radio"][name="${name}"]`));
+      let radios = Array.from(clone.querySelectorAll(`input[type=radio][name="${name}"]`));
       if (radios.every(radio => radio.checked == false)) {
         radios[0].checked = true;
       }
@@ -62,7 +62,7 @@ export default class FormBuilder {
   removePK(form) {
     let regexps = this.assocs.map(assoc => new RegExp(`${assoc.description}(\\])?\\[\\d+\\]\\[${assoc.pk}\\]$`));
 
-    form.querySelectorAll('input[name][type="hidden"]').forEach(elem => {
+    form.querySelectorAll('input[name][type=hidden]').forEach(elem => {
       regexps.forEach(regexp => {
         if (elem.name.match(regexp)) {
           elem.remove();
