@@ -76,7 +76,7 @@ you can set the name of associations as the following example:
 
 ```html
 <div data-controller="nested-form"
-    data-nested-form-associations-value='["assocsA", "assocsB"]'>
+     data-nested-form-associations-value='["assocsA", "assocsB"]'>
 </div>
 ```
 
@@ -84,8 +84,8 @@ You can also specify name of primary keys as follows:
 
 ```html
 <div data-controller="nested-form"
-    data-nested-form-associations-value='["assocsA", "assocsB"]'
-    data-nested-form-primary-keys-value='["id", "id"]'>
+     data-nested-form-associations-value='["assocsA", "assocsB"]'
+     data-nested-form-primary-keys-value='["id", "id"]'>
 </div>
 ```
 
