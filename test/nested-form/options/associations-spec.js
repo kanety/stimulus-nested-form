@@ -9,7 +9,7 @@ describe('associations', () => {
     document.body.innerHTML = `
       <form>
         <div data-controller="nested-form"
-             data-nested-form-associations-value="[&quot;one&quot;, &quot;another&quot;]">
+             data-nested-form-associations-value='["one", "another"]'>
           <div data-nested-form-target="form">
             <input type="text" name="one_attributes[0][text]" id="one_attributes_0_text">
             <input type="text" name="another_attributes[0][text]" id="another_attributes_0_text">

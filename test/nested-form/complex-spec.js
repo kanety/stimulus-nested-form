@@ -11,19 +11,19 @@ describe('index', () => {
     document.body.innerHTML = `
       <form>
         <ul data-controller="nested-form"
-            data-nested-form-associations-value="[&quot;assocs&quot;]">
+            data-nested-form-associations-value='["assocs"]'>
           <li data-nested-form-target="form">
             <input type="text" name="item[assocs_attributes][0][text]" id="item_assocs_attributes_0_text" style="width: 500px;">
             <input type="hidden" name="item[assocs_attributes][0][id]" id="item_assocs_attributes_0_id">
             <input type="hidden" name="item[assocs_attributes][0][_destroy]" id="item_assocs_attributes_0__destroy">
             <ul data-controller="nested-form"
-                data-nested-form-associations-value="[&quot;deep&quot;]">
+                data-nested-form-associations-value='["deep"]'>
               <li data-nested-form-target="form">
                 <input type="text" name="item[assocs_attributes][0][deep_attributes][0][text]" id="item_assocs_attributes_0_deep_attributes_0_text" style="width: 500px;">
                 <input type="hidden" name="item[assocs_attributes][0][deep_attributes][0][id]" id="item_assocs_attributes_0_deep_attributes_0_id">
                 <input type="hidden" name="item[assocs_attributes][0][deep_attributes][0][_destroy]" id="item_assocs_attributes_0_deep_attributes_0__destroy">
                 <ul data-controller="nested-form"
-                    data-nested-form-associations-value="[&quot;more_deep&quot;]">
+                    data-nested-form-associations-value='["more_deep"]'>
                   <li data-nested-form-target="form">
                     <input type="text" name="item[assocs_attributes][0][deep_attributes][0][more_deep_attributes][0][text]" id="item_assocs_attributes_0_deep_attributes_0_more_deep_attributes_0_text" style="width: 500px;">
                     <input type="hidden" name="item[assocs_attributes][0][deep_attributes][0][more_deep_attributes][0][id]" id="item_assocs_attributes_0_deep_attributes_0_more_deep_attributes_0_id">
