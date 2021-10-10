@@ -25,7 +25,7 @@ export default class FormBuilder {
 
   run() {
     let form = this.clone(this.template);
-    form.classList.remove('st-nested-form--hidden');
+    form.style.display = '';
 
     let newIndex = this.forms.length + this.controller.startValue;
     this.renewIndex(form, newIndex);

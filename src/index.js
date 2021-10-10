@@ -1,6 +1,5 @@
 import { Controller } from '@hotwired/stimulus';
 import FormBuilder from './form-builder';
-import './index.scss';
 
 export default class extends Controller {
   static targets = ['form'];
@@ -83,7 +82,7 @@ export default class extends Controller {
   }
 
   removeForm(form) {
-    form.classList.add('st-nested-form--hidden');
+    form.style.display = 'none';
 
     let regexps = this.assocs.map(assoc => new RegExp(`${assoc.description}(\\])?\\[\\d+\\]\\[_destroy\\]`));
 
@@ -108,7 +107,7 @@ export default class extends Controller {
 
   hasMaxForms() {
     return this.maxValue &&
-           this.formTargets.filter(form => !form.matches('.st-nested-form--hidden')).length >= this.maxValue;
+           this.formTargets.filter(form => form.style.display != 'none').length >= this.maxValue;
   }
 
   disableAdder(disabled) {

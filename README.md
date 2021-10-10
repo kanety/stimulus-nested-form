@@ -24,12 +24,6 @@ const application = Application.start();
 application.register('nested-form', NestedFormController);
 ```
 
-Import css:
-
-```css
-@import '@kanety/stimulus-nested-form';
-```
-
 Build nested form using Rails `fields_for`:
 
 ```erb
@@ -82,7 +76,7 @@ you can set the name of associations as the following example:
 
 ```html
 <div data-controller="nested-form"
-    data-nested-form-associations-value="[&quote;assocsA&quote;, &quote;assocsB&quote;]">
+    data-nested-form-associations-value='["assocsA", "assocsB"]'>
 </div>
 ```
 
@@ -90,8 +84,8 @@ You can also specify name of primary keys as follows:
 
 ```html
 <div data-controller="nested-form"
-    data-nested-form-associations-value="[&quote;assocsA&quote;, &quote;assocsB&quote;]"
-    data-nested-form-primary-keys-value="[&quote;id&quote;, &quote;id&quote;]">
+    data-nested-form-associations-value='["assocsA", "assocsB"]'
+    data-nested-form-primary-keys-value='["id", "id"]'>
 </div>
 ```
 

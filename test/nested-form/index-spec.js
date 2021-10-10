@@ -51,7 +51,7 @@ describe('index', () => {
     });
 
     it('removes form', () => {
-      expect($$('[data-nested-form-target="form"]:not(.st-nested-form--hidden)').length).toEqual(1);
+      expect($$('[data-nested-form-target="form"]:not([style*="display: none;"])').length).toEqual(1);
       expect($('#tests_attributes_1__destroy').value).toEqual('1');
     });
   });
