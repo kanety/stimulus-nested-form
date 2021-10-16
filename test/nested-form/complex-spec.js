@@ -1,12 +1,6 @@
-import { Application } from '@hotwired/stimulus';
-import NestedFormController from 'index';
-
-const application = Application.start();
-application.register('nested-form', NestedFormController);
-
 jest.useFakeTimers();
 
-describe('index', () => {
+describe('complex', () => {
   beforeEach(() => {
     document.body.innerHTML = `
       <form>

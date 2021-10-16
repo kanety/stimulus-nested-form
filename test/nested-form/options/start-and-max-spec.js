@@ -1,9 +1,3 @@
-import { Application } from '@hotwired/stimulus';
-import NestedFormController from 'index';
-
-const application = Application.start();
-application.register('nested-form', NestedFormController);
-
 describe('start-and-max', () => {
   beforeEach(() => {
     document.body.innerHTML = `
