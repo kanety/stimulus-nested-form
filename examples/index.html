@@ -2,62 +2,15 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <script type="importmap">
-    {
-      "imports": {
-        "@hotwired/stimulus": "/node_modules/@hotwired/stimulus/dist/stimulus.js",
-        "@kanety/stimulus-nested-form": "/dist/index.module.js"
-      }
-    }
-  </script>
-  <script type="module">
-    import { Application, Controller } from '@hotwired/stimulus';
-    import NestedFormController from '@kanety/stimulus-nested-form';
-    const application = Application.start();
-    application.register('nested-form', NestedFormController);
-  </script>
 </head>
 <body>
-  <h1>Basic Form</h1>
-  <form>
-    <div data-controller="nested-form">
-      <div data-nested-form-target="form">
-        <p><input type="text" name="assocs_attributes[0][text]" id="assocs_attributes_0_text"></p>
-        <p><textarea name="assocs_attributes[0][textarea]" id="assocs_attributes_0_textarea"></textarea></p>
-        <p>
-          <select name="assocs_attributes[0][select]" id="assocs_attributes_0_select">
-            <option value=""></option>
-            <option value="opt1">opt1</option>
-            <option value="opt2" selected="selected">opt2</option>
-          </select>
-        </p>
-        <p>
-          <input type="hidden" value="" name="assocs_attributes[0][radio]">
-          <input type="radio" value="1" name="assocs_attributes[0][radio]" id="assocs_attributes_0_radio_1">
-          <label for="assocs_attributes_0_radio_1">radio1</label>
-          <input type="radio" value="2" name="assocs_attributes[0][radio]" id="assocs_attributes_0_radio_2" checked="checked">
-          <label for="assocs_attributes_0_radio_2">radio2</label>
-        </p>
-        <p>
-          <input type="hidden" value="0" name="assocs_attributes[0][checkbox]">
-          <input type="checkbox" value="1" name="assocs_attributes[0][checkbox]" id="assocs_attributes_0_checkbox" checked="checked">
-          <label for="assocs_attributes_0_checkbox">Checkbox</label>
-        </p>
-        <input type="hidden" value="0" name="assocs_attributes[0][id]" id="assocs_attributes_0_id">
-        <input type="hidden" value="0" name="assocs_attributes[0][_destroy]" id="assocs_attributes_0__destroy">
-        <button type="button" data-action="nested-form#remove">Remove</button>
-      </div>
-      <button type="button" data-action="nested-form#add">Add</button>
-    </div>
-  </form>
-  <script>
-    function showID(e) {
-      document.querySelectorAll('input[type="text"], textarea').forEach(input => {
-        input.value = input.id;
-      });
-    }
-    showID();
-    document.querySelector('[data-controller="nested-form"]').addEventListener('nested-form:after-add', showID);
-  </script>
+  <ul>
+    <li><a href="basic.html">basic</a></li>
+    <li><a href="callbacks.html">callbacks</a></li>
+    <li><a href="associations.html">associations</a></li>
+    <li><a href="start-and-max.html">start-and-max</a></li>
+    <li><a href="add-pos.html">add-pos</a></li>
+    <li><a href="complex.html">complex</a></li>
+  </ul>
 </body>
 </html>

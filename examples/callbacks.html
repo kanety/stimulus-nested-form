@@ -2,11 +2,12 @@
 <html>
 <head>
   <meta charset="UTF-8">
+  <script async src="https://cdn.jsdelivr.net/npm/es-module-shims@1.3.0/dist/es-module-shims.js"></script>
   <script type="importmap">
     {
       "imports": {
-        "@hotwired/stimulus": "/node_modules/@hotwired/stimulus/dist/stimulus.js",
-        "@kanety/stimulus-nested-form": "/dist/index.module.js"
+        "@hotwired/stimulus": "https://cdn.jsdelivr.net/npm/@hotwired/stimulus@3.0.1/dist/stimulus.js",
+        "@kanety/stimulus-nested-form": "../dist/index.module.js"
       }
     }
   </script>
@@ -18,7 +19,7 @@
   </script>
 </head>
 <body>
-  <h1>Callback</h1>
+  <h1>Callbacks</h1>
   <form>
     <div data-controller="nested-form">
       <div data-nested-form-target="form">
@@ -33,16 +34,16 @@
   <script>
     let element = document.querySelector('[data-controller="nested-form"]');
     element.addEventListener('nested-form:before-add', (e) => {
-      alert('before-add: ' + e.detail.form.querySelector('input').id);
+      console.log('before-add: ', e.detail);
     });
     element.addEventListener('nested-form:after-add', (e) => {
-      alert('after-add: ' + e.detail.form.querySelector('input').id);
+      console.log('after-add: ', e.detail);
     });
     element.addEventListener('nested-form:before-remove', (e) => {
-      alert('before-remove: ' + e.detail.form.querySelector('input').id);
+      console.log('before-remove: ', e.detail);
     });
     element.addEventListener('nested-form:after-remove', (e) => {
-      alert('after-remove: ' + e.detail.form.querySelector('input').id);
+      console.log('after-remove: ', e.detail);
     });
 
     function showID(e) {
