@@ -4,7 +4,7 @@ A stimulus controller for adding / removing Rails nested form dynamically.
 
 ## Dependencies
 
-* @hotwired/stimulus 3.0
+* @hotwired/stimulus 3.0+
 
 ## Installation
 
