@@ -85,14 +85,21 @@ export default class extends Controller {
     form.style.display = 'none';
 
     let regexps = this.assocs.map(assoc => new RegExp(`${assoc.description}(\\])?\\[\\d+\\]\\[_destroy\\]`));
+    let destroyFound = false;
 
     form.querySelectorAll('input[name][type=hidden]').forEach(elem => {
       regexps.forEach(regexp => {
         if (elem.name.match(regexp)) {
           elem.value = '1';
+          destroyFound = true;
         }
       });
     });
+
+    if (!destroyFound) {
+      // Remove element from DOM to clean out the association
+      form.remove();
+    }
 
     this.refresh();
   }
